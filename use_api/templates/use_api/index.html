@@ -1,0 +1,43 @@
+{% extends 'use_api/base.html' %}
+
+
+{% block style %}
+    <style>
+        table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+        }
+
+        td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+        }
+
+        tr:nth-child(even) {
+        background-color: #dddddd;
+        }
+    </style>
+{% endblock %}
+
+
+{% block content %}
+    <div class="text-center">
+        <h3> Rendering of API custom</h3> 
+        <table>
+            <tr>
+                <th> Number </th>
+                <th> Message </th>
+            </tr>
+            {% for r in recap %}
+            <tr>
+                <th> {{ r.phone }} </th>
+                <th> Morning {{r.gender}} {{r.name}},<br/>
+                please pay your first payment up to 
+                {{ r.amount }} FCFA before the {{ r.deadline }}.
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+{% endblock %}
